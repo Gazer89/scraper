@@ -1,0 +1,33 @@
+<!--Homepage-->
+<div class="container-fluid">
+    <div class="col-sm-12 jumbotron">
+        <div class="text-center">
+            <h1>Mongo Scraper</h1>
+            <h2>New York Times</h2>
+        </div>
+
+    </div>
+    <div class="col-sm-12">
+        {{#if article}}
+         {{> count-modal }}
+            {{#each article}}
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3>{{this.title}} <button type="button" class="btn btn-secondary save" data-id={{this._id}}>Save Article</button></h3>
+                </div>
+                <div class="panel-body">
+                    <p> {{this.summary}}</p>
+                    <a href={{this.link}} target="_blank">{{this.link}}</a>
+                    <br><br>
+                </div>
+            </div>
+            {{/each}}
+        {{else}}
+        <div class="panel panel-primary">
+            <div class="panel-body">
+            <h4>Uh Oh. Looks like we don't have any new articles.</h4>
+            </div>
+         </div>
+        {{/if}}
+    </div>
+</div>
